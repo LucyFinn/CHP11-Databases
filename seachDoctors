@@ -1,0 +1,14 @@
+import sqlite3
+conn = sqlite3.connect("hospital.db")
+cur = conn.cursor()
+
+doctor_type = "GP"
+
+cur.execute("SELECT name, phone FROM doctors WHERE type = ?", (doctor_type,))
+rows = cur.fetchall()
+
+print(f"\nDoctors with type '{doctor_type}':\n")
+for name, phone in rows:
+    print("Name:", name, "| Phone:", phone)
+    
+conn.close()
