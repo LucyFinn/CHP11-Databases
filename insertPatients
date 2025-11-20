@@ -1,0 +1,17 @@
+import sqlite3
+conn = sqlite3.connect("hospital.db")
+cur = conn.cursor()
+
+docID = int(input("Input DR ID: "))
+names = input("Input patient name: ")
+gender = input("Input the gender of patient: ")
+injury = input("Enter the type of injury: ")
+number = input("Pleae enter the phone number of the patient: ")
+
+cur.execute(
+    "INSERT INTO patients (doctorID, name, gender, injury, phone) VALUES (?, ?, ?, ?, ?)",
+    (docID, names, gender, injury, number)
+    )
+conn.commit()
+print("Patient inserted")
+conn.close()
