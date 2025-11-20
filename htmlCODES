@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctors List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Doctors in the Database</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Phone</th>
+        </tr>
+
+        {# Jinja2 loop over doctors sent from Flask #}
+        {% for doc in doctors %}
+        <tr>
+            <td>{{ doc["id"] }}</td>
+            <td>{{ doc["name"] }}</td>
+            <td>{{ doc["type"] }}</td>
+            <td>{{ doc["phone"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Patients in the Database</h1>
+
+    <table>
+        <tr>
+            <th>DoctorID</th>
+            <th>Name</th>
+            <th>Gender</th>
+		<th>Injury</th>
+            <th>Phone</th>
+        </tr>
+
+        {# Jinja2 loop over patients sent from Flask #}
+        {% for pat in patients %}
+        <tr>
+            <td>{{ pat["doctorID"] }}</td>
+            <td>{{ pat["name"] }}</td>
+            <td>{{ pat["gender"] }}</td>
+		<td>{{ pat["injury"] }}</td>
+            <td>{{ pat["phone"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
