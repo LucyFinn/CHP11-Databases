@@ -1,0 +1,15 @@
+import sqlite3
+conn = sqlite3.connect("hospital.db")
+cur = conn.cursor()
+
+names = input("Input doctor name: ")
+job = input("Input the type of doctor: ")
+number = input("Pleae enter the phone number of the doctor: ")
+
+cur.execute(
+    "INSERT INTO doctors (name, type, phone) VALUES (?, ?, ?)",
+    (names, job, number)
+    )
+conn.commit()
+print("Dr inserted")
+conn.close()
