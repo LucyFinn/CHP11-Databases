@@ -1,0 +1,14 @@
+import sqlite3
+conn = sqlite3.connect("hospital.db")
+cur = conn.cursor()
+
+patient_injury = "covid"
+
+cur.execute("SELECT name, phone FROM patients WHERE injury = ?", (patient_injury,))
+rows = cur.fetchall()
+
+print(f"\nPatients with injury '{patient_injury}':\n")
+for name, phone in rows:
+    print("Name:", name, "| Phone:", phone)
+    
+conn.close()
