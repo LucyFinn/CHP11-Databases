@@ -95,7 +95,7 @@
             <th>DoctorID</th>
             <th>Name</th>
             <th>Gender</th>
-		<th>Injury</th>
+		        <th>Injury</th>
             <th>Phone</th>
         </tr>
 
@@ -105,7 +105,7 @@
             <td>{{ pat["doctorID"] }}</td>
             <td>{{ pat["name"] }}</td>
             <td>{{ pat["gender"] }}</td>
-		<td>{{ pat["injury"] }}</td>
+		        <td>{{ pat["injury"] }}</td>
             <td>{{ pat["phone"] }}</td>
         </tr>
         {% endfor %}
